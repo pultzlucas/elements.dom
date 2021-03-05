@@ -1,10 +1,25 @@
 {
   "name": "elements.dom",
+  "author": "Lucas Pultz",
   "version": "1.1.7",
-  "description": "dom CLI",
+  "description": "O elements.dom é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.",
   "bin": {
     "dom": "bin/dom"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lucas-Lopes-Pultz/elements.dom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lucas-Lopes-Pultz/elements.dom/issues"
+  },
+  "homepage": "https://github.com/Lucas-Lopes-Pultz/elements.dom#readme",
+  "keywords": [
+    "elements",
+    "dom",
+    "pultzlucas",
+    "dom-manipulation"
+  ],
   "scripts": {
     "format": "prettier --write **/*.{js,json} && standard --fix",
     "lint": "standard",

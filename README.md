@@ -1,5 +1,5 @@
  
-<h1 align="center">&ltelements.dom/&gt</h1>
+<h1 align="center">&#60;elements.dom/&#62;</h1>
 
 # 🙋‍♂️Sobre
 
@@ -10,72 +10,113 @@ O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a pa
 ---
 # 📒Índice
 
-- [Como instalar e utilizar](#Como-instalar-e-utilizar)
+- [Como instalar](#Como-instalar)
+
+- Comandos
+    - [dom](#dom)
+    - [init](#init)
+    - [generate](#generate)
+    - [rm](#rm)
+    - [version](#version)
+    - [help](#help)
+
 - Como configurar
-    - [exp](#exp)
-    - [iden](#iden)
+    - [exports](#exports)
     - [link](#link)
+    - [identifiers](#identifiers)
     - [ignore](#ignore)
 
 - [Proximas Atualizações](#Proximas-Atualizações)
 ---
 
-# 🤜Como instalar e utilizar
+# 🤜Como instalar
 
-> <small>❗ Para utilizar o **elements.dom** você precisa ter o [Node.js](https://nodejs.org/en/) e o [npm](https://www.npmjs.com/get-npm) instalados na sua máquina.</small>
+> <small>❗ Para utilizar o **elements.dom** você precisa ter o <a href="https://nodejs.org/en/" target="_blank">Node.js</a> e o <a href="https://www.npmjs.com/get-npm" target="_blank">npm</a> instalados na sua máquina.</small>
 
 - Instale o pacote pelo npm.
 
-````console
+````shell
 $ npm install elements.dom
 ````
 
-- Vá até a mesma pasta onde seu arquivo HTML está salvo e crie um outro arquivo (com o nome que você desejar) de extensão .js.
+# 🤜Comandos
 
-- Importe o **elements.dom** para dentro do arquivo javascript criado com o seguinte comando.
+## **dom**
 
-````js
-const elementsDOM = require('elements.dom')
+- O comando **dom** é o comando principal da aplicação.
+
+- Para confirmar se o **elements.dom** está instalado digite **dom** no seu terminal e execute.
+
+````shell
+$ dom
 ````
 
-- Agora vamos gerar o arquivo com os seletores Javascript.
+- Se o pacote estiver instalado vai aparecer uma mensagem de boas vindas 🎉.
 
-- Para gerar o arquivo você irá utilizar a função importada que nomeamos como elementsDOM.
+---
 
-- O primeiro parâmetro da função vai receber o nome do arquivo HTML.
+## **init**
 
-<small>Olhe o exemplo abaixo:</small>
-
-````js
-elementsDOM('index.html')
+````shell
+$ dom init
 ````
 
-- O segundo parâmetro recebe o caminho do o arquivo javascript onde que vão ficar os seletores dos elementos.
+- O comando **init** serve para criar o arquivo "dom.config.json", esse é o arquivo de configuração do **elements.dom**. 
 
-<small>Olhe o exemplo abaixo:</small>
+> ❗ Sem o arquivo de configuração o elements.dom não funciona.
 
-````js
-elementsDOM('index.html', 'elements.js')
+---
+
+## **generate**
+
+````shell
+$ dom generate
 ````
 
-> <small>Obs: não é necessário colocar a extensão .html e nem .js nos parâmetros, o elements.dom ja faz isso para você : )</small>
+- O comando **generate** é o método que vai gerar os seletores no arquivo javascript final.
 
-- O terceiro parâmetro recebe um objeto contendo as configurações.
+- Mas o **generate** recebe dois **parâmetros obrigatórios**.
 
-> <small>Este parâmetro não é obrigatório. </small>
+- O primeiro parâmetro se trata do caminho onde seu arquivo **.html** está salvo.
 
-````js
-elementsDOM('index.html', 'elements.js', {})
+- O segundo parâmetro se trata do do caminho onde o arquivo **.js** com os seletores vai ser salvo.
+
+ex:
+````shell
+$ dom generate index.html elements.js
 ````
 
-- Para rodar o programa abra o terminal e escreva o seguinte comando.
+> <small>Obs: As extensões .html e .js não são obrigatórias, o processo funciona mesmo sem as extensões. Coloquei com extensões no exemplo para não deixar dúvidas e pra ficar mais fácil de entender.</small>
 
-````console
-$ node NOME_DO_SEU_ARQUIVO_JS.js
+---
+
+## **rm**
+
+````shell
+$ dom rm
 ````
-> <small>Obs: NOME_DO_SEU_ARQUIVO_JS se refere ao seu arquivo javascript onde você importou o pacote do elements.dom.</small>
 
-> <small>No próximo tópico vão ter as instruções de como customizar as configurações.</small>
+- O comando **rm** remove o arquivo de configuração.
+
+---
+
+## **version**
+
+````shell
+$ dom -v
+````
+
+- O comando **version**  mostra a versão do **elements.dom** que você está utilizando.
+
+---
+
+## **help**
+
+````shell
+$ dom -h
+````
+
+- O comando **help** mostra todos os comandos da aplicação e uma breve descrição de cada um.
 
 ---
 
@@ -83,59 +124,68 @@ $ node NOME_DO_SEU_ARQUIVO_JS.js
 
 > <small>Esta é a configuração padrão.👇</small>
 
-````js
+````json
 {
-    exp: false,
-    iden: ['class', 'id'],
-    link: true,
-    ignore: {
-        classes: [''],
-        ids: ['']
+    "exports": false,
+    "link": true,
+    "identifiers": [
+        "class",
+        "id",
+        "tag",
+        "name"
+    ],
+    "ignore": {
+        "classes": [
+            ""
+        ],
+        "ids": [
+            ""
+        ],
+        "tags": [
+            ""
+        ],
+        "names": [
+            ""
+        ]
     }
 }
 ````
 
-## **exp:**
+## **exports:**
 
-O **exp** se refere à exportação dos seletores.
-
-````js
-exp: false
+````json
+{
+    "exports": false
+}
 ````
+O **exports** se refere à exportação dos seletores.
 
-Se você setar o **exp** como **true** vai aparecer no seu arquivo de selectores um **export** contendo o nome de todos os seletores.<br>
+Se você setar o **exports** como **true** vai aparecer no seu arquivo de selectores um **export** contendo o nome de todos os seletores.<br>
 
 ex:
 
 ````js
-export {html, body, element}
+export {
+    html, 
+    body, 
+    element1,
+    element2
+}
 ````
 
 > <small>Por padrão o exp é definido como false</small>
 
 ---
 
-## **iden:**
-
-O **iden** se refere à quais **identificadores** você quer utilizar para selecionar elementos no seu HTML
-
-````js
-iden: ['class', 'id']
-````
-
-Para customizar basta remover do array os identificadores que você não quer utilizar.
-
-> <small>Por padrão o iden ja vem com todos os identificadores.</small>
-
----
-
 ## **link:**
 
-O **link** se refere ao **&#60;script/&#62;** contido em seu arquivo HTML que aponta para o arquivo dos seletores.
-
-````js
-link: true
+````json
+{
+    "link": true
+}
 ````
+
+O **link** se refere ao **&#60;script/&#62;** contido em seu arquivo HTML que aponta para o arquivo dos seletores.
 
 Quando o valor do **link** é true, é criado uma tag **&#60;script/&#62;** em seu arquivo HTML em que o atributo **src** aponta para seu arquivo Javascript onde existem os seletores.<br>
 
@@ -145,16 +195,50 @@ Caso contrário não é criado a tag **&#60;script/&#62;**.
 
 ---
 
-## **ignore:**
+## **identifiers:**
 
-O **ignore** se refere à quais elementos você não quer que sejam selecionados.
-
-````js
-ignore: {
-    classes: [''],
-    ids: ['']
+````json
+{
+    "identifiers": [
+        "class",
+        "id",
+        "tag",
+        "name"
+    ],
 }
 ````
+
+O **identifiers** se refere à quais **identificadores** você quer utilizar para selecionar elementos no seu HTML
+
+Para customizar basta remover do array os identificadores que você não quer utilizar.
+
+> <small>Por padrão o iden ja vem com todos os identificadores.</small>
+
+---
+
+## **ignore:**
+
+````json
+
+{
+    "ignore": {
+        "classes": [
+            ""
+        ],
+        "ids": [
+            ""
+        ],
+        "tags": [
+            ""
+        ],
+        "names": [
+            ""
+        ]
+    }
+}
+````
+
+O **ignore** se refere à quais elementos você não quer que sejam selecionados.
 
 E para ignorar um elemento você informa no **ignore** o seu identificador (se é classes, ids etc.) e qual é o valor desse identificador.
 
@@ -164,9 +248,11 @@ E para ignorar um elemento você informa no **ignore** o seu identificador (se �
 
 - Neste caso você deve informar que o identificador é **classes** e que o seu valor é **container**.
 
-````js
-ignore: {
-    classes: ['container']
+````json
+{
+    "ignore": {
+        "classes": ["container"]
+    }
 }
 ````
 
@@ -174,23 +260,28 @@ ignore: {
 
 - Neste caso você deve informar que o identificador é **ids** e que seu valor é **input_name**.
 
-````js
-ignore: {
-    classes: ['container'],
-    ids: ['input_name']
+````json
+{
+    "ignore": {
+        "classes": ["container"],
+        "ids": ["input_name"]
+    }
 }
 ````
+
 > <small>Por padrão o ignore não vem com nenhum elemento para ser ignorado.</small>
 
 ---
 
 # Proximas Atualizações✍
 
+> Versão atual 1.1.7
+
  - ✅ Resolver falhas do ignore.
 
  - ✅ Dois identificadores novos: name e tag.
 
- - ⬜ Utilização por terminal. Assim não será mais necessário criar um arquivo js para configurar e utilizar o módulo.
+ - ✅ Utilização por terminal. Assim não será mais necessário criar um arquivo js para configurar e utilizar o módulo.
 
  - ⬜ Método "watch" para atualizar os seletores toda vez que o HTML for editado.
 
