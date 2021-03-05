@@ -3,8 +3,9 @@
 
 # 🙋‍♂️Sobre
 
+O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.1.6
+> Versão 1.1.7
 
 ---
 # 📒Índice
