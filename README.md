@@ -75,7 +75,7 @@ $ dom generate
 
 - O comando **generate** é o método que vai gerar os seletores no arquivo javascript final.
 
-- Mas o **generate** recebe dois **parâmetros obrigatórios**.
+- O **generate** recebe dois **parâmetros obrigatórios**.
 
 - O primeiro parâmetro se trata do caminho onde seu arquivo **.html** está salvo.
 
