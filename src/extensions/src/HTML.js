@@ -4,6 +4,7 @@ class HTML {
     constructor(path, fileName) {
         this.path = path
         this.fileName = fileName
+        this.linkString = `<script src="${this.fileName}"></script>\n`
         this.string = fs.readFileSync(this.path, 'utf8', err => {
             console.log(err.message)
         })
@@ -12,16 +13,15 @@ class HTML {
     writeLink() {
         const [string1, string2] = this.HTMLStrings
 
-        const link = `<script src="${this.fileName}"></script>\n`
-        const fullHTMLwLink = string1 + link + string2
+        const fullHTMLwLink = string1 + this.linkString + string2
 
         fs.writeFileSync(this.path, fullHTMLwLink)
     }
 
     removeLink() {
-        const linkString = `<script src="${this.fileName}"></script>\n`
-        const linkRegex = RegExp(linkString, 'gi')
+        const linkRegex = RegExp(this.linkString, 'gi')
         const HTMLNoLinked = this.string.replace(linkRegex, '')
+        console.log(linkRegex)
         fs.writeFileSync(this.path, HTMLNoLinked)
     }
 

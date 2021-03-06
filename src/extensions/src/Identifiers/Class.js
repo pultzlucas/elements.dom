@@ -101,7 +101,24 @@ class ClassIdentifier {
     }
 
     get classes() {
-        return this.layers.getAttribute('class', this.ignoredClasses)
+        const removeIgnoredClasses = clsArray => 
+            clsArray.split(' ').filter(cls => 
+                !this.ignoredClasses.some(iClass => iClass === cls)
+            ).join(' ')
+        
+        const getClasses = layer => {
+            const classStartValueIndex = layer.match('class="').index + 7
+            const startString = layer.substring(classStartValueIndex)
+            return startString.substring(0, startString.indexOf('"'))
+        }
+
+        const classes = this.layers
+            .filter(layer => !!layer.match('class="'))
+            .map(getClasses)
+            .removeEmptyStrings()
+            .map(removeIgnoredClasses)
+
+        return classes
     }
 }
 

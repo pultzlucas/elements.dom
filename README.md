@@ -5,7 +5,7 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.1.7
+> Versão 1.1.9
 
 ---
 # 📒Índice
@@ -275,7 +275,7 @@ E para ignorar um elemento você informa no **ignore** o seu identificador (se �
 
 # Proximas Atualizações✍
 
-> Versão atual 1.1.7
+> Versão atual 1.1.9
 
  - ✅ Resolver falhas do ignore.
 

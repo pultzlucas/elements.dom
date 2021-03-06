@@ -57,7 +57,8 @@ class TagIdentifier {
     get tags() {
         const layersWithoutTokens = this.layers.removeChar('<', '>')
         const removeScriptTag = tag => tag !== 'script' && tag !== '/script'
-        const removeIgnoredTag = tag => !this.ignoredTags.some(ignoredTag => tag === ignoredTag)
+        const removeIgnoredTag = tag => 
+            !this.ignoredTags.some(ignoredTag => tag === ignoredTag || tag === `/${ignoredTag}`)
 
         const tags = layersWithoutTokens
             .map(layer => layer.match(' ')
