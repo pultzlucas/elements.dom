@@ -246,8 +246,6 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
 - Neste caso você deve ir até o identificador **classes** e digitar os valores **container** e **btn** como uma string dentro do array.
 
-> Você pode colocar a quantidade de valores que precisar dentro dos identificadores do ignore.
-
 ````json
 {
     "ignore": {
@@ -267,6 +265,7 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
     }
 }
 ````
+> Você pode colocar a quantidade de valores que precisar dentro dos identificadores do ignore.
 
 - Agora quero que o que o **id** input_name não seja selecionado
 
