@@ -5,7 +5,7 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.1.9
+> Versão 1.2.0
 
 ---
 # 📒Índice
@@ -212,7 +212,7 @@ O **identifiers** se refere à quais **identificadores** você quer utilizar par
 
 Para customizar basta remover do array os identificadores que você não quer utilizar.
 
-> <small>Por padrão o iden ja vem com todos os identificadores.</small>
+> <small>Por padrão o identifiers ja vem com todos os identificadores.</small>
 
 ---
 
@@ -238,33 +238,56 @@ Para customizar basta remover do array os identificadores que você não quer ut
 }
 ````
 
-O **ignore** se refere à quais elementos você não quer que sejam selecionados.
-
-E para ignorar um elemento você informa no **ignore** o seu identificador (se é classes, ids etc.) e qual é o valor desse identificador.
+O **ignore** se refere à quais valores de um identificador que você não quer que sejam selecionados.
 
 ### Exemplo:
 
-- Não quero que os elementos com a classe container sejam selecionados.
+- Não quero que a **class** container e btn sejam selecionadas.
 
-- Neste caso você deve informar que o identificador é **classes** e que o seu valor é **container**.
+- Neste caso você deve ir até o identificador **classes** e digitar os valores **container** e **btn** como uma string dentro do array.
+
+> Você pode colocar a quantidade de valores que precisar dentro dos identificadores do ignore.
 
 ````json
 {
     "ignore": {
-        "classes": ["container"]
+        "classes": [
+            "container",
+            "btn"
+        ],
+        "ids": [
+            ""
+        ],
+        "tags": [
+            ""
+        ],
+        "names": [
+            ""
+        ]
     }
 }
 ````
 
-- Agora quero que o elemento com o id input_name não seja selecionado
+- Agora quero que o que o **id** input_name não seja selecionado
 
-- Neste caso você deve informar que o identificador é **ids** e que seu valor é **input_name**.
+- Neste caso você deve ir até o identificador **ids** e digitar o valor **input_name**.
 
 ````json
 {
     "ignore": {
-        "classes": ["container"],
-        "ids": ["input_name"]
+        "classes": [
+            "container",
+            "btn"
+        ],
+        "ids": [
+            "input_name"
+        ],
+        "tags": [
+            ""
+        ],
+        "names": [
+            ""
+        ]
     }
 }
 ````
@@ -275,7 +298,7 @@ E para ignorar um elemento você informa no **ignore** o seu identificador (se �
 
 # Proximas Atualizações✍
 
-> Versão atual 1.1.9
+> Versão atual 1.2.0
 
  - ✅ Resolver falhas do ignore.
 
