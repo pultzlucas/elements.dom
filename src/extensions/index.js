@@ -12,12 +12,6 @@ let idIden
 let tagIden
 let nameIden
 
-String.prototype.concatExtension = function (extension) {
-    const regex = RegExp(`.${extension}+`, 'gi')
-    const cleanFilename = this.replace(regex, '')
-    return cleanFilename + `.${extension}`
-}
-
 Array.prototype.containsIden = function (iden) {
     return this.some(e => e === iden)
 }
@@ -68,12 +62,9 @@ module.exports = toolbox => {
 
     function generateSelectors(path, fileName, config = {}) {
         return new Promise((resolve, reject) => {
-            fileName = fileName.concatExtension('js')
-            path = path.concatExtension('html')
-
             const resolveMsg = filesystem.exists(fileName) ?
-                `\n  ${fileName} was updated.` :
-                `\n  ${fileName} was created.`
+                `${fileName} was updated.` :
+                `${fileName} was created.`
 
             try {
                 const html = new HTML(path, fileName)

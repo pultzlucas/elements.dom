@@ -1,0 +1,24 @@
+{
+    "exports": false,
+    "link": true,
+    "identifiers": [
+        "class",
+        "id",
+        "tag",
+        "name"
+    ],
+    "ignore": {
+        "classes": [
+            ""
+        ],
+        "ids": [
+            ""
+        ],
+        "tags": [
+            ""
+        ],
+        "names": [
+            ""
+        ]
+    }
+}

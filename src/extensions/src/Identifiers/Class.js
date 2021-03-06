@@ -115,8 +115,8 @@ class ClassIdentifier {
         const classes = this.layers
             .filter(layer => !!layer.match('class="'))
             .map(getClasses)
-            .removeEmptyStrings()
             .map(removeIgnoredClasses)
+            .removeEmptyStrings()
 
         return classes
     }

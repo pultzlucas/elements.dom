@@ -5,7 +5,13 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.2.0
+> Versão 1.2.1
+
+---
+
+## Porque utilizar o elements.dom?
+
+    As vezes se torna cansativo escrever os seletores do html no javascript, por isso criei uma ferramenta para pegar os elementos do html e escrever os seletores em um arquivo javascript.
 
 ---
 # 📒Índice
@@ -19,6 +25,9 @@ O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a pa
     - [rm](#rm)
     - [version](#version)
     - [help](#help)
+
+- Métodos
+    - [watch](#watch)
 
 - Como configurar
     - [exports](#exports)
@@ -36,10 +45,10 @@ O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a pa
 - Instale o pacote pelo npm.
 
 ````shell
-$ npm install elements.dom
+$ npm install elements.dom -g
 ````
 
-# 🤜Comandos
+# 🤜Comandos e métodos
 
 ## **dom**
 
@@ -117,6 +126,24 @@ $ dom -h
 ````
 
 - O comando **help** mostra todos os comandos da aplicação e uma breve descrição de cada um.
+
+---
+
+# 🤜Métodos
+
+## **watch**
+
+- O **watch** é um método que faz com que o **elements.dom** altere seu arquivo de seletores toda vez que o arquivo html for alterado. 
+
+- Esse método sempre será utilizado junto com o comando **generate** e seus parâmetros.
+
+ex:
+
+````shell
+$ dom generate index.html elements.js --watch
+````
+
+> ❗ Lembre-se sempre de reiniciar o watch quando o arquivo de configuração for alterado. Para reiniciar o watch aperte Ctrl + C para encerrar o processo e execute novamente.
 
 ---
 
@@ -246,6 +273,8 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
 - Neste caso você deve ir até o identificador **classes** e digitar os valores **container** e **btn** como uma string dentro do array.
 
+> Você pode colocar a quantidade de valores que precisar dentro dos identificadores do ignore.
+
 ````json
 {
     "ignore": {
@@ -265,7 +294,6 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
     }
 }
 ````
-> Você pode colocar a quantidade de valores que precisar dentro dos identificadores do ignore.
 
 - Agora quero que o que o **id** input_name não seja selecionado
 
@@ -297,7 +325,7 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
 # Proximas Atualizações✍
 
-> Versão atual 1.2.0
+> Versão atual 1.2.1
 
  - ✅ Resolver falhas do ignore.
 
@@ -305,7 +333,9 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
  - ✅ Utilização por terminal. Assim não será mais necessário criar um arquivo js para configurar e utilizar o módulo.
 
- - ⬜ Método "watch" para atualizar os seletores toda vez que o HTML for editado.
+ - ✅ Método "watch" para atualizar os seletores toda vez que o HTML for editado.
+
+ - ⬜ Manipulador de arquivo html.
 
 ---
 
