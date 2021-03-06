@@ -18,7 +18,8 @@
     "elements",
     "dom",
     "pultzlucas",
-    "dom-manipulation"
+    "dom-manipulation",
+    "CLI"
   ],
   "scripts": {
     "format": "prettier --write **/*.{js,json} && standard --fix",
