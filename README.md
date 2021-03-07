@@ -5,13 +5,51 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.2.1
+> Versão 1.2.2
 
 ---
 
 ## Porque utilizar o elements.dom?
 
-    As vezes se torna cansativo escrever os seletores do html no javascript, por isso criei uma ferramenta para pegar os elementos do html e escrever os seletores em um arquivo javascript.
+As vezes se torna cansativo escrever os seletores do html no javascript, ainda mais quando se têm muitos elementos, por isso criei uma ferramenta que pega os elementos de um arquivo html e escreve os "querySelector" em constantes já nomeadas em um arquivo javascript onde você poder utilizar. 
+
+Além de ser uma ferramenta simples de se utilizar, o **elements.dom** aceita configurações em que o usuário pode editar como quiser a seleção de elementos. 
+
+## Exemplo de input e output
+
+> input - arquivo .html
+````html
+<body>
+    <div class="container">
+        <form>
+            <input type="text" id="input_name">
+            <input type="radio" name="option">
+            <input type="radio" name="option">
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+````
+
+> output - arquivo .js
+
+````js
+//MAIN
+const html = document.querySelector('html')
+const body = document.querySelector('body')
+//ID
+const inputName = document.querySelector('#input_name')
+//CLASS
+const container = document.querySelector('.container')
+const btn = document.querySelector('.btn')
+//TAG
+const input = document.querySelectorAll('input')
+const div = document.querySelector('div')
+const form = document.querySelector('form')
+const button = document.querySelector('button')
+//NAME
+const option = document.querySelectorAll('option')
+````
 
 ---
 # 📒Índice
@@ -48,7 +86,7 @@ O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a pa
 $ npm install elements.dom -g
 ````
 
-# 🤜Comandos e métodos
+# 🤜Comandos
 
 ## **dom**
 
@@ -325,7 +363,7 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
 # Proximas Atualizações✍
 
-> Versão atual 1.2.1
+> Versão atual 1.2.2
 
  - ✅ Resolver falhas do ignore.
 
