@@ -96,7 +96,7 @@ module.exports = toolbox => {
                 if (!link) html.removeLink()
 
             } catch (err) {
-                reject('\n  There was an error generating selector file.')
+                reject('There was an error generating selector file.')
             }
 
             resolve(resolveMsg)

@@ -5,7 +5,7 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.2.2
+> Versão 1.2.3
 
 ---
 
@@ -54,13 +54,15 @@ const option = document.querySelectorAll('option')
 ---
 # 📒Índice
 
-- [Como instalar](#Como-instalar)
+- [Como instalar](#como-instalar)
 
 - Comandos
     - [dom](#dom)
     - [init](#init)
     - [generate](#generate)
     - [rm](#rm)
+    - [crthtml](#crthtml)
+    - [rmhtml](#rmhtml)
     - [version](#version)
     - [help](#help)
 
@@ -73,12 +75,13 @@ const option = document.querySelectorAll('option')
     - [identifiers](#identifiers)
     - [ignore](#ignore)
 
-- [Proximas Atualizações](#Proximas-Atualizações)
+- [Proximas Atualizações](#proximas-atualizações)
+
 ---
 
 # 🤜Como instalar
 
-> <small>❗ Para utilizar o **elements.dom** você precisa ter o <a href="https://nodejs.org/en/" target="_blank">Node.js</a> e o <a href="https://www.npmjs.com/get-npm" target="_blank">npm</a> instalados na sua máquina.</small>
+> ❗ Para utilizar o **elements.dom** você precisa ter o [Node.js](https://nodejs.org/en/) e o [npm](https://www.npmjs.com/get-npm) instalados na sua máquina.
 
 - Instale o pacote pelo npm.
 
@@ -120,7 +123,7 @@ $ dom init
 $ dom generate
 ````
 
-- O comando **generate** é o método que vai gerar os seletores no arquivo javascript final.
+- O **generate** é o comando que vai gerar os seletores no arquivo javascript final.
 
 - O **generate** recebe dois **parâmetros obrigatórios**.
 
@@ -133,7 +136,7 @@ ex:
 $ dom generate index.html elements.js
 ````
 
-> <small>Obs: As extensões .html e .js não são obrigatórias, o processo funciona mesmo sem as extensões. Coloquei com extensões no exemplo para não deixar dúvidas e pra ficar mais fácil de entender.</small>
+> Obs: As extensões .html e .js não são obrigatórias, o processo funciona mesmo sem as extensões. Coloquei com extensões no exemplo para não deixar dúvidas e pra ficar mais fácil de entender.
 
 ---
 
@@ -144,6 +147,61 @@ $ dom rm
 ````
 
 - O comando **rm** remove o arquivo de configuração.
+
+---
+
+## **crthtml**
+
+- O comando **crthtml** gera um arquivo **.html** utilizando informações de três parâmetros.
+
+- O primeiro parâmetro recebe o nome do arquivo **html**
+
+````shell
+$ dom crthtml index.html
+````
+
+> Apenas o primeiro parâmetro é obrigatório
+
+- O segundo parâmetro recebe a linguagem do html (ex: en, pt-br, etc)
+
+````shell
+$ dom crthtml index.html pt-br
+````
+
+- O terceiro parâmetro recebe entre aspas o título do html (o título vai ficar dentro da tag &#60;title&#62; do &#60;head&#62;)
+
+````shell
+$ dom crthtml index.html pt-br "Título do HTML"
+````
+
+> O arquivo html final vai ficar assim:
+
+````html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título do HTML</title>
+</head>
+<body>
+    
+</body>
+</html>
+````
+
+---
+
+## **rmhtml**
+
+- O comando **rmhtml** remove o arquivo **.html** especificado no primeiro parâmetro.
+
+ex:
+
+````shell
+$ dom rmhtml index.html
+````
 
 ---
 
@@ -187,7 +245,7 @@ $ dom generate index.html elements.js --watch
 
 # 🤜Como configurar
 
-> <small>Esta é a configuração padrão.👇</small>
+> Esta é a configuração padrão.👇
 
 ````json
 {
@@ -225,7 +283,7 @@ $ dom generate index.html elements.js --watch
 ````
 O **exports** se refere à exportação dos seletores.
 
-Se você setar o **exports** como **true** vai aparecer no seu arquivo de selectores um **export** contendo o nome de todos os seletores.<br>
+Se você setar o **exports** como **true** vai aparecer no seu arquivo de selectores um **export** contendo o nome de todos os seletores.
 
 ex:
 
@@ -238,7 +296,7 @@ export {
 }
 ````
 
-> <small>Por padrão o exp é definido como false</small>
+> Por padrão o exports é definido como false
 
 ---
 
@@ -252,11 +310,11 @@ export {
 
 O **link** se refere ao **&#60;script/&#62;** contido em seu arquivo HTML que aponta para o arquivo dos seletores.
 
-Quando o valor do **link** é true, é criado uma tag **&#60;script/&#62;** em seu arquivo HTML em que o atributo **src** aponta para seu arquivo Javascript onde existem os seletores.<br>
+Quando o valor do **link** é true, é criado uma tag **&#60;script/&#62;** em seu arquivo HTML em que o atributo **src** aponta para seu arquivo Javascript onde existem os seletores.
 
 Caso contrário não é criado a tag **&#60;script/&#62;**.
 
-> <small>Por padrão o link é definido como true.</small>
+> Por padrão o link é definido como true.
 
 ---
 
@@ -277,7 +335,7 @@ O **identifiers** se refere à quais **identificadores** você quer utilizar par
 
 Para customizar basta remover do array os identificadores que você não quer utilizar.
 
-> <small>Por padrão o identifiers ja vem com todos os identificadores.</small>
+> Por padrão o identifiers ja vem com todos os identificadores.
 
 ---
 
@@ -357,13 +415,13 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 }
 ````
 
-> <small>Por padrão o ignore não vem com nenhum elemento para ser ignorado.</small>
+> Por padrão o ignore não vem com nenhum elemento para ser ignorado.
 
 ---
 
 # Proximas Atualizações✍
 
-> Versão atual 1.2.2
+> Versão atual 1.2.3
 
  - ✅ Resolver falhas do ignore.
 
@@ -373,7 +431,9 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
  - ✅ Método "watch" para atualizar os seletores toda vez que o HTML for editado.
 
- - ⬜ Manipulador de arquivo html.
+ - ✅ Manipulador de arquivo html.
+
+ - ⬜ Reescrever o pacote para typescript.
 
 ---
 
