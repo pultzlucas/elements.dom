@@ -11,7 +11,7 @@ O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a pa
 
 ## Porque utilizar o elements.dom?
 
-As vezes se torna cansativo escrever os seletores do html no javascript, ainda mais quando se têm muitos elementos, por isso criei uma ferramenta que pega os elementos de um arquivo html e escreve os "querySelector" em constantes já nomeadas em um arquivo javascript onde você poder utilizar. 
+As vezes se torna cansativo escrever os seletores do html no javascript, ainda mais quando se têm muitos elementos, por isso criei uma ferramenta que pega os elementos de um arquivo html e escreve os "querySelector" em constantes já nomeadas em um arquivo javascript onde você poder utilizar sem se preocupar em linkar o script no html.
 
 Além de ser uma ferramenta simples de se utilizar, o **elements.dom** aceita configurações em que o usuário pode editar como quiser a seleção de elementos. 
 
@@ -111,9 +111,9 @@ $ dom
 $ dom init
 ````
 
-- O comando **init** serve para criar o arquivo "dom.config.json", esse é o arquivo de configuração do **elements.dom**. 
+- O comando **init** serve para criar o arquivo "dom.config.json"
 
-> ❗ Sem o arquivo de configuração o elements.dom não funciona.
+- O "dom.config.json" é o arquivo de configuração do **elements.dom**. 
 
 ---
 
@@ -129,7 +129,9 @@ $ dom generate
 
 - O primeiro parâmetro se trata do caminho onde seu arquivo **.html** está salvo.
 
-- O segundo parâmetro se trata do do caminho onde o arquivo **.js** com os seletores vai ser salvo.
+> Se o arquivo .html informado não existir, é criado um html a partir do caminho que você passou no primeiro parâmetro.
+
+- O segundo parâmetro se trata do caminho onde o arquivo **.js** com os seletores vai ser salvo.
 
 ex:
 ````shell
@@ -154,7 +156,7 @@ $ dom rm
 
 - O comando **crthtml** gera um arquivo **.html** utilizando informações de três parâmetros.
 
-- O primeiro parâmetro recebe o nome do arquivo **html**
+- O primeiro parâmetro recebe o caminho do arquivo **.html**
 
 ````shell
 $ dom crthtml index.html
@@ -168,7 +170,9 @@ $ dom crthtml index.html
 $ dom crthtml index.html pt-br
 ````
 
-- O terceiro parâmetro recebe entre aspas o título do html (o título vai ficar dentro da tag &#60;title&#62; do &#60;head&#62;)
+- O terceiro parâmetro recebe entre aspas o título do html
+
+> o título vai ficar dentro da tag &#60;title&#62; do &#60;head&#62;.
 
 ````shell
 $ dom crthtml index.html pt-br "Título do HTML"
@@ -195,7 +199,7 @@ $ dom crthtml index.html pt-br "Título do HTML"
 
 ## **rmhtml**
 
-- O comando **rmhtml** remove o arquivo **.html** especificado no primeiro parâmetro.
+- O comando **rmhtml** remove o arquivo **.html** especificado.
 
 ex:
 
@@ -229,7 +233,7 @@ $ dom -h
 
 ## **watch**
 
-- O **watch** é um método que faz com que o **elements.dom** altere seu arquivo de seletores toda vez que o arquivo html for alterado. 
+- O **watch** é um método que faz com que o **elements.dom** altere seu arquivo de seletores toda vez que o arquivo **.html** for alterado. 
 
 - Esse método sempre será utilizado junto com o comando **generate** e seus parâmetros.
 
@@ -273,6 +277,8 @@ $ dom generate index.html elements.js --watch
     }
 }
 ````
+
+---
 
 ## **exports:**
 
@@ -335,7 +341,7 @@ O **identifiers** se refere à quais **identificadores** você quer utilizar par
 
 Para customizar basta remover do array os identificadores que você não quer utilizar.
 
-> Por padrão o identifiers ja vem com todos os identificadores.
+> Por padrão o identifiers já vem com todos os identificadores.
 
 ---
 

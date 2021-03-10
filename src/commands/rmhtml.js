@@ -1,6 +1,6 @@
 module.exports = {
     name: 'rmhtml',
-    description: 'removes html file',
+    description: 'Removes html file',
     run: toolbox => {
         const { concatExtension, messages, parameters, filesystem, print: { success, error } } = toolbox
         let { first: htmlFile } = parameters
