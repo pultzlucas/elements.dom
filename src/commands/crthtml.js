@@ -1,31 +1,19 @@
 module.exports = {
     name: 'crthtml',
     description: 'Creates a html5 file.',
-    run: toolbox => {
+    run: async toolbox => {
         const {
-            concatExtension,
+            createHtml,
             parameters,
-            messages, 
-            template, 
             print: { success, error }
         } = toolbox
 
-        let { first: name, second: lang, third: title } = parameters
+        const { first: name, second: lang, third: title } = parameters
 
-        if (!name) {
-            error(messages.error.htmlMustBeSpecified)
-            return
+        try {
+            success(await createHtml(name, lang, title))
+        } catch (err) {
+            error(err)
         }
-        name = concatExtension(name, 'html')
-        lang = !lang ? 'en' : lang
-        title = !title ? 'Document' : title
-
-        template.generate({
-            template: 'html.ejs',
-            target: name,
-            props: { lang, title }
-        })
-            .then(() => success(`${name} was created`))
-            .catch(() => error(messages.error.errorCreatingHtmlFile))
     }
 }
