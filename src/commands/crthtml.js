@@ -4,16 +4,13 @@ module.exports = {
     run: async toolbox => {
         const {
             createHtml,
-            parameters,
+            filesystem,
+            parameters: { first: name, second: lang, third: title },
             print: { success, error }
         } = toolbox
 
-        const { first: name, second: lang, third: title } = parameters
-
-        try {
-            success(await createHtml(name, lang, title))
-        } catch (err) {
-            error(err)
-        }
+        createHtml(name, lang, title)
+            .then(msg => success(msg))
+            .catch(err => error(err))
     }
 }

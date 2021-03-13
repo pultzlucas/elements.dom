@@ -2,24 +2,10 @@ module.exports = {
     name: 'rmhtml',
     description: 'Removes html file',
     run: toolbox => {
-        const { concatExtension, messages, parameters, filesystem, print: { success, error } } = toolbox
-        let { first: htmlFile } = parameters
+        const { removeHtml, parameters, print: { success, error } } = toolbox
 
-        if (!htmlFile) {
-            error(messages.error.htmlMustBeSpecified)
-            return
-        }
-
-        htmlFile = concatExtension(htmlFile, 'html')
-        const htmlNotExists = !filesystem.exists(htmlFile)
-
-        if (htmlNotExists) {
-            error(`${htmlFile} does not exists in this folder.`)
-            return
-        }
-
-        filesystem.remove(htmlFile)
-
-        success(`${htmlFile} was removed.`)
+        removeHtml(parameters.first)
+            .then(msg => success(msg))
+            .catch(err => error(err))
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "elements.dom",
   "author": "Lucas Pultz",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "O elements.dom é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.",
   "bin": {
     "dom": "bin/dom"

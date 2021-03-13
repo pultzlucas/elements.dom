@@ -25,7 +25,6 @@ class HTML {
         fs.writeFileSync(this.path, HTMLNoLinked)
     }
 
-
     get layers() {
         const removeComments = layer =>
             !RegExp('<!--').test(layer) && !RegExp('-->').test(layer)
@@ -88,7 +87,7 @@ class HTML {
         const bodyTagIndex = this.string.match(RegExp('</body>')).index
         const HTMLContainsScriptOnBody = /<script/.test(this.string)
 
-        if (HTMLContainsScriptOnBody) 
+        if (HTMLContainsScriptOnBody)
             return this.string.match(/<script/).index
 
         return bodyTagIndex

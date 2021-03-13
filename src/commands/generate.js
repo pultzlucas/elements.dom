@@ -20,8 +20,7 @@ module.exports = {
         const domConfigNotExists = !filesystem.exists('dom.config.json')
         if (domConfigNotExists) configJSON = getDefaultConfig()
 
-        const anyParameterIsEmpty = parameters.first === undefined || parameters.second === undefined
-        if (anyParameterIsEmpty) {
+        if (parameters.first === undefined || parameters.second === undefined) {
             error(messages.error.anyParameterIsEmpty)
             info(messages.info.templateOfGenerateCommand)
             return
@@ -30,20 +29,18 @@ module.exports = {
         const htmlFile = concatExtension(parameters.first, 'html')
         const jsFile = concatExtension(parameters.second, 'js')
 
-        const htmlFileNotExists = !filesystem.exists(htmlFile)
-        if(htmlFileNotExists){
-            try{
+        if (!filesystem.exists(htmlFile)) {
+            try {
                 success(await createHtml(htmlFile))
-            }catch(err){
+            } catch (err) {
                 error(err)
             }
         }
 
-        const generate = () => {
+        const generate = () =>
             generateSelectors(htmlFile, jsFile, configJSON)
                 .then(successMsg => success(successMsg))
                 .catch(errorMsg => error(errorMsg))
-        }
 
         if (!!parameters.options.watch) {
             info('Watching ' + colorString(htmlFile, 36))

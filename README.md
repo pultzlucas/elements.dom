@@ -5,7 +5,7 @@
 
 O **elements.dom** é um módulo Javascript que seleciona os elementos HTML a partir de seus identificadores. Ele disponibiliza os seletores dos elementos selecionados em um arquivo .js para você utilizar.
 
-> Versão 1.2.4
+> Versão 1.2.5
 
 ---
 
@@ -194,6 +194,8 @@ $ dom crthtml index.html pt-br "Título do HTML"
 </body>
 </html>
 ````
+
+- Se você usar o **crthtml** e passar no primeiro parâmetro o nome de um arquivo .html já existente, ele vai editar o html existente a partir do segundo e terceiro parâmetro. 
 
 ---
 
@@ -427,7 +429,7 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
 # Proximas Atualizações✍
 
-> Versão atual 1.2.4
+> Versão atual 1.2.5
 
  - ✅ Resolver falhas do ignore.
 
