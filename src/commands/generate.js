@@ -1,4 +1,5 @@
 const fs = require('fs')
+const path = require('path')
 
 module.exports = {
     name: 'generate',
@@ -28,6 +29,12 @@ module.exports = {
 
         const htmlFile = concatExtension(parameters.first, 'html')
         const jsFile = concatExtension(parameters.second, 'js')
+
+        const dir = path.dirname(jsFile)
+        const dirNotExists = !fs.existsSync(dir)
+
+        if (dir !== '.' && dirNotExists) 
+            fs.mkdirSync(dir, { recursive: true })
 
         if (!filesystem.exists(htmlFile)) {
             try {

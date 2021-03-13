@@ -441,8 +441,6 @@ O **ignore** se refere à quais valores de um identificador que você não quer 
 
  - ✅ Manipulador de arquivo html.
 
- - ⬜ Reescrever o pacote para typescript.
-
 ---
 
 <p align="center">Projeto feito por <strong>Lucas Lopes Pultz</strong></p>
